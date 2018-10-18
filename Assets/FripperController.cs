@@ -55,14 +55,14 @@ public class FripperController : MonoBehaviour {
             var id = Input.touches[i].fingerId;
             var pos = Input.touches[i].position;
             Debug.LogFormat("{0} - x:{1}, y:{2}", id, pos.x, pos.y);
-            if (id == 0)
+            if (id >= 0)
             {
                 //指１本の場合
-                if ((pos.x <= 250) && tag == "LeftFripperTag")
+                if ((pos.x <= Screen.width / 2) && tag == "LeftFripperTag")
                 {
                     SetAngle(this.flickAngle);
                 }
-                else if((pos.x >=250) && tag == "RightFripperTag")
+                else if((pos.x >= Screen.width / 2) && tag == "RightFripperTag")
                 {
                     SetAngle(this.flickAngle);
                 }
@@ -76,18 +76,16 @@ public class FripperController : MonoBehaviour {
                 SetAngle(this.defaultAngle);
                 //Debug.LogFormat("{0}:いま離された", id);
                 //指１本の場合
-                if ((pos.x <= 250) && tag == "LeftFripperTag")
+                if ((pos.x <= Screen.width / 2) && tag == "LeftFripperTag")
                 {
                     SetAngle(this.defaultAngle);
                 }
-                else if ((pos.x >= 250) && tag == "RightFripperTag")
+                else if ((pos.x >= Screen.width / 2) && tag == "RightFripperTag")
                 {
                     SetAngle(this.defaultAngle);
                 }
             }
-                   
-
-
+                  
         }
 
     }
